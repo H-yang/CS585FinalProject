@@ -1,14 +1,8 @@
-import pyscreenshot as ImageGrab
-import time
-import easygui
-import os
 import numpy as np
-import pylab
 from PIL import Image
 from PIL import ImageChops
 from PIL import ImageOps
 import PIL
-import cv2
 import os
 
 height = 662
@@ -39,10 +33,13 @@ def compare(ch_img, ff_img):
     diff = ImageChops.subtract(ch_img, ff_img)
     diff = ImageOps.invert(diff)
 
+
+
+
     return diff
 
 def add_layer_to_base(ch_img, diff):
-    new_img = Image.blend(ch_img, diff, 0.4)
+    new_img = Image.blend(ch_img, diff, 0.2)
     return new_img
 
 def concat(ch_img, ff_img, diff, pic_name):
@@ -91,8 +88,8 @@ def run():
             concat_pic_name = dir_cmp + str(CH_imgs_list[i]) + '.png'
             concat(ch_img, ff_img, diff, concat_pic_name)
 
-
-    # show result
-
 if __name__ == "__main__":
     run()
+    print 'DONE!'
+    cmp_imgs_list = getImgList('cmp')
+    os.system('start' + './cmp/' + cmp_imgs_list[0])
