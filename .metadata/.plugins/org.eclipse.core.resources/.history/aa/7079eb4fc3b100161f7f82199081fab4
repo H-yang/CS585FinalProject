@@ -1,0 +1,17 @@
+package drivers;
+
+public class Driver {
+
+	public void setUp(String type){
+		
+		String chromeService = "C:\\chromedriver_win32\\chromedriver.exe";
+		String firefoxService = "C:\\geckodriver\\wires.exe";
+		String ieService = "C:\\IEDriverServer_x64_2.53.1\\IEDriverServer.exe";
+		
+		if(type.equals("chrome")){
+			System.setProperty("webdriver.chrome.driver", chromeService);
+			
+		}
+	}
+	
+}

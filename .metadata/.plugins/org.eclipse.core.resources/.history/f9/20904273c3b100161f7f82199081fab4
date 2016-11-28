@@ -1,0 +1,23 @@
+package drivers;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Driver {
+
+	public WebDriver setUp(String type){
+		
+		String chromeService = "C:\\chromedriver_win32\\chromedriver.exe";
+		String firefoxService = "C:\\geckodriver\\wires.exe";
+		String ieService = "C:\\IEDriverServer_x64_2.53.1\\IEDriverServer.exe";
+		
+		if(type.equals("chrome")){
+			System.setProperty("webdriver.chrome.driver", chromeService);
+			WebDriver driver = new ChromeDriver();
+		}
+		
+		
+		return driver;
+	}
+	
+}

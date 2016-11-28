@@ -1,0 +1,74 @@
+package img;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Screenshot {
+
+	
+	public String parseFileName(String url){
+		String pattern = "(?:.+\\/)([^#?]+)(.html)";
+		Pattern r = Pattern.compile(pattern);
+		Matcher m = r.matcher(url);
+		String fileName = "";
+		if (m.find()){
+	         fileName = m.group(1);
+	    }
+		else{
+	         fileName = "ERROR";
+	    }
+		
+		return fileName;
+	}
+	
+	public void get(WebDriver driver, String url, String driverName) throws InterruptedException, IOException{
+		
+		driver.get(url);
+
+		List<String> hrefs = new ArrayList<String>();
+		List<WebElement> anchors = driver.findElements(By.tagName("a"));
+		for(WebElement anchor : anchors){
+		    hrefs.add(anchor.getAttribute("href"));
+		}
+		
+		
+		for(String href : hrefs){
+			driver.get(href);
+			TimeUnit.SECONDS.sleep(5);
+			
+			
+			String imgName = "";
+			if(driverName.equals("FF")){
+				imgName = "FF/";
+			}
+			else{
+				imgName = "CH/";
+			}
+			
+			imgName += parseFileName(href);
+			imgName += ".png";
+//			System.out.println(imgName);
+			File scrFiletmp = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scrFiletmp, new File(imgName));
+			
+			JavascriptExecutor je = (JavascriptExecutor) driver;
+			je.executeScript("javascript:window.scrollBy(250,350)");
+			
+		}
+		
+		driver.quit();
+	}
+}

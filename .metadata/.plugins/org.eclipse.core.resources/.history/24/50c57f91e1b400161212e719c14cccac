@@ -1,0 +1,130 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import drivers.Driver;
+ 
+public class Web_Driver {
+		 
+	public static void main(String[] args) throws IOException, InterruptedException {
+		
+		Driver ini = new Driver();
+		ini.setUp();
+		
+		WebDriver FF_Driver = new FirefoxDriver();
+		
+//		WebDriver CH_Driver = new ChromeDriver();
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--start-maximized");
+//		CH_Driver = new ChromeDriver(options);
+		
+		
+
+		FF_Driver.get("file:///C:/Users/Rosemary/Desktop/585/Maxop%20Free%20Website%20Template%20-%20Free-CSS.com/bs-multipager-maxop/index.html");
+
+		
+		List<WebElement> all_links_webpage = FF_Driver.findElements(By.tagName("a")); 
+		System.out.println("Total no of links Available: " + all_links_webpage.size());
+		int k = all_links_webpage.size();
+		System.out.println("List of links Available: ");
+		for(int i=0;i<k;i++){
+			if(all_links_webpage.get(i).getAttribute("href").contains("google")){
+				String link = all_links_webpage.get(i).getAttribute("href");
+				System.out.println(link);
+			}   
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+//		java.util.List<WebElement> links = FF_Driver.findElements(By.tagName("a"));
+//		System.out.println("Number of Links in the Page is " + links.size());
+
+//		String link = "//a[contains(.,'"+ links.get(2).getText() + "')]";
+//		System.out.println(link);
+//		FF_Driver.findElement(By.xpath(link)).click();
+//		TimeUnit.SECONDS.sleep(5);
+//		FF_Driver.get("file:///C:/Users/Rosemary/Desktop/585/Maxop%20Free%20Website%20Template%20-%20Free-CSS.com/bs-multipager-maxop/index.html");
+//	
+//		
+//		link = "//a[contains(.,'"+ links.get(3).getText() + "')]";
+//		System.out.println(link);
+//		FF_Driver.findElement(By.xpath(link)).click();
+//		TimeUnit.SECONDS.sleep(5);
+//		FF_Driver.get("file:///C:/Users/Rosemary/Desktop/585/Maxop%20Free%20Website%20Template%20-%20Free-CSS.com/bs-multipager-maxop/index.html");
+//		
+//		
+//		link = "//a[contains(.,'"+ links.get(2).getText() + "')]";
+//		FF_Driver.findElement(By.xpath(link)).click();
+//		FF_Driver.get("file:///C:/Users/Rosemary/Desktop/585/Maxop%20Free%20Website%20Template%20-%20Free-CSS.com/bs-multipager-maxop/index.html");
+//		
+//		
+//		link = "//a[contains(.,'"+ links.get(3).getText() + "')]";
+//		FF_Driver.findElement(By.xpath(link)).click();
+		
+
+		
+//		try{
+//			for (int i = 0; i<links.size(); i++) {
+//		         System.out.println("Name of Link# " + i + links.get(i).getText());
+//		         String link = "//a[contains(.,'"+ links.get(i).getText() + "')]";
+//		         System.out.println(link);
+//		         FF_Driver.findElement(By.xpath(link)).click();
+//		         TimeUnit.SECONDS.sleep(5);
+//		         FF_Driver.quit();
+//		         FF_Driver.get("file:///C:/Users/Rosemary/Desktop/585/Maxop%20Free%20Website%20Template%20-%20Free-CSS.com/bs-multipager-maxop/index.html");
+////		         FF_Driver.findElement(By.xpath("//a[contains(.,'Experience')]")).click();
+//			}
+//		}
+//		finally{}
+		
+		
+		
+		
+//		FF_Driver.findElement(By.xpath("//a[contains(.,'Experience')]")).click();
+
+//		TimeUnit.SECONDS.sleep(5);
+//		JavascriptExecutor je = (JavascriptExecutor) FF_Driver;
+//		je.executeScript("javascript:window.scrollBy(250,350)");
+		
+//		JavascriptExecutor je1 = (JavascriptExecutor) driver1;
+//		je1.executeScript("javascript:window.scrollBy(250,350)");
+//	
+//		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//		// Now you can do whatever you need to do with it, for example copy somewhere
+//		FileUtils.copyFile(scrFile, new File("screenshot-ff1.png"));
+//		
+//		
+//		je.executeScript("window.scrollTo(0, 800);");
+//		TimeUnit.SECONDS.sleep(5);
+//		File scrFile1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//		// Now you can do whatever you need to do with it, for example copy somewhere
+//		FileUtils.copyFile(scrFile1, new File("screenshot-ff2.png"));
+//		
+		
+//		driver.quit();
+	}
+}
