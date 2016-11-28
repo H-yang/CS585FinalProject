@@ -45,7 +45,19 @@ def add_layer_to_base(ch_img, diff):
     new_img = Image.blend(ch_img, diff, 0.4)
     return new_img
 
-# def concat(ch_img, ff_img, diff):
+def concat(ch_img, ff_img, diff, pic_name):
+    # list_im = [ch_img, ff_img]
+    imgs = [ch_img, ff_img]
+    # pick the image which is the smallest, and resize the others to match it (can be arbitrary image shape here)
+    min_shape = sorted([(np.sum(i.size), i.size) for i in imgs])[0][1]
+    imgs_combine_ch_ff = np.hstack((np.asarray(i.resize(min_shape)) for i in imgs))
+
+    # save that beautiful picture
+    imgs_combine_ch_ff = PIL.Image.fromarray(imgs_combine_ch_ff)
+    # f_name = str(pic_name) + '.png'
+    imgs_combine_ch_ff.save(pic_name)
+
+
 
 
 def run():
@@ -61,6 +73,7 @@ def run():
 
         dir_CH = "./CH/"
         dir_FF = "./FF/"
+        dir_cmp = "./cmp/"
 
         for i in xrange(len(FF_imgs_list)):
             # print CH_imgs_list[i]
@@ -71,10 +84,13 @@ def run():
             ff_img = adjust(ff_img)
 
             diff = compare(ch_img, ff_img)
-            # diff.show()
-            new_img = add_layer_to_base(ch_img, diff)
-            new_img.show()
-            # contat(diff, ch, ff)
+            new_diff = add_layer_to_base(ch_img, diff)
+            diff_file_name = dir_cmp + str(CH_imgs_list[i]) + '-diff.png'
+            new_diff.save(diff_file_name)
+
+            concat_pic_name = dir_cmp + str(CH_imgs_list[i]) + '.png'
+            concat(ch_img, ff_img, diff, concat_pic_name)
+
 
     # show result
 
