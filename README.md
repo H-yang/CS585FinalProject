@@ -1,11 +1,11 @@
 # FinalProject
-CS585 final project ver2
+CS585 final project ver2</br>
 
-(You can still use ver1 which is done with python, however, you can only grab the top area of the html page. Since your web page can be long, only grab the top area to compare is not enough.)
+(You can still use ver1 which is done with python, however, you can only grab the top area of the html page. Since your web page can be long, only grab the top area to compare is not enough.)</br>
 
-This project can help you to compare the browser compatability by images captured from different browsers. The approach of this project is quite simple and understandable, it will connect to the url then fetch all the url links of current page, the grab two parts of all html pages then compare these images.
+This project can help you to compare the browser compatability by images captured from different browsers. The approach of this project is quite simple and understandable, it will connect to the url then fetch all the url links of current page, the grab two parts of all html pages then compare these images.</br>
 
-[[How does this work?]]
+[[How does this work?]]</br>
 1. The program goes to the link you specified. </br>
 2. Gather the links of this page. </br>
 3. Visit all the links.</br>
@@ -16,10 +16,10 @@ This project can help you to compare the browser compatability by images capture
 
 Results:
 The solid color is image from Chrome, FireFox has lighter color so that you can compare them:</br>
-<img>https://raw.githubusercontent.com/H-yang/FinalProject/master/585Proj/cmp/contact-scroll.png-diff.png</img>
+![alt tag](https://raw.githubusercontent.com/H-yang/FinalProject/master/585Proj/cmp/contact-scroll.png-diff.png)
 
 ImgCompare.py also combine the results so you can still compare by your eyes:</br>
-<img>https://raw.githubusercontent.com/H-yang/FinalProject/master/585Proj/cmp/contact-scroll.png.png</img>
+![alt tag](https://raw.githubusercontent.com/H-yang/FinalProject/master/585Proj/cmp/contact-scroll.png.png)
 
 
 
