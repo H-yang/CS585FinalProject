@@ -1,5 +1,5 @@
 # FinalProject
-CS585 final project ver2</br>
+CS585 final project : Web Browser Compatability Checker</br>
 
 (You can still use ver1 which is done with python, however, you can only grab the top area of the html page. Since your web page can be long, only grab the top area to compare is not enough.)</br>
 
