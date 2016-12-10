@@ -1,7 +1,11 @@
 # FinalProject
 CS585 final project : Web Browser Compatability Checker</br>
-
-(You can still use ver1 which is done with python, however, you can only grab the top area of the html page. Since your web page can be long, only grab the top area to compare is not enough.)</br>
+</br>
+Requirements:</br>
+To run this, you will need to load the files into your Eclipse.</br>
+Required library: Selenium api for Java. (http://www.seleniumhq.org/download/)</br>
+Have driver file. You can dowloand from the above link </br>
+Specify driver file location in the program </br>
 
 This project can help you to compare the browser compatability by images captured from different browsers. The approach of this project is quite simple and understandable, it will connect to the url then fetch all the url links of current page, the grab two parts of all html pages then compare these images.</br>
 
